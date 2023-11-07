@@ -3,10 +3,10 @@
   <router-link to="/sets"> Set Select </router-link>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   data: () => ({
-    set: "none",
+    set: "none" as String,
   }),
 };
 </script>

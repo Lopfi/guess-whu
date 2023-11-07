@@ -1,9 +1,9 @@
 <template>
   <div class="q-gutter-sm fit row wrap">
     <SetCard
-      v-for="(set, n) in this.sets"
+      v-for="(set, n) in sets"
       :name="set.name"
-      :img="set.thumbnail"
+      :img="set.thumbnail ?? 'https://via.placeholder.com/150'"
       :key="`sm-${n}`"
     />
   </div>
@@ -11,13 +11,13 @@
 
 <style></style>
 
-<script>
-import SetCard from "/src/components/SetCard.vue";
-import { getSets } from "/src/lib/sets.ts";
+<script lang="ts">
+import SetCard from "../components/SetCard.vue";
+import { getSets, Set } from "../lib/sets.ts";
 
 export default {
   data: () => ({
-    sets: [],
+    sets: [] as Set[],
   }),
   components: {
     SetCard,

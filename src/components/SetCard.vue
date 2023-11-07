@@ -21,7 +21,7 @@
 }
 </style>
 
-<script>
+<script lang="ts">
 export default {
   props: {
     name: {
