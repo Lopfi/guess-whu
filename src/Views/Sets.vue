@@ -3,7 +3,7 @@
     <SetCard
       v-for="(set, n) in this.sets"
       :name="set.name"
-      :img="`/sets/${set.name}/thumbnail.jpg`"
+      :img="`/public/sets/${set.name}/thumbnail.png`"
       :key="`sm-${n}`"
     />
   </div>

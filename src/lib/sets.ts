@@ -1,4 +1,8 @@
-const images = import.meta.glob("/public/sets/*/*png");
+const images = {
+  ...import.meta.glob("/public/sets/*/*.png"),
+  ...import.meta.glob("/public/sets/*/*.jpg"),
+  ...import.meta.glob("/public/sets/*/*.jpeg"),
+};
 
 let sets: Set[] = [];
 
@@ -27,8 +31,7 @@ async function loadSets() {
       currentSet = setName;
     }
     const cardName = path.split("/")[4].split(".")[0];
-    if (cardName !== "thumbnail")
-      cards.push({ name: path.split("/")[4].split(".")[0], image: path });
+    if (cardName !== "thumbnail") cards.push({ name: cardName, image: path });
   }
   sets.push({ name: currentSet, cards });
 }
@@ -38,6 +41,7 @@ export async function getSets() {
   return sets;
 }
 
-export function getSet(name: string) {
+export async function getSet(name: string) {
+  await loadSets();
   return sets.find((set) => set.name === name);
 }

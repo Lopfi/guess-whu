@@ -23,10 +23,8 @@ export default {
   components: {
     Card,
   },
-  async created() {
-    console.log(this.$route.params.set);
+  async beforeMount() {
     this.set = await getSet(this.$route.params.set);
-    console.log(this.set);
   },
 };
 </script>

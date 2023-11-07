@@ -1,11 +1,7 @@
 <template>
-  <q-card class="card" @click="changeState()">
+  <q-card class="card" @click="flip()">
     <q-img :src="img" :ratio="3 / 4" width="120px">
-      <q-icon
-        :name="state"
-        :color="state == 'close' ? 'red' : 'green'"
-        size="120px"
-      />
+      <q-icon v-show="closed" name="close" color="red" size="120px" />
     </q-img>
 
     <q-card-section>
@@ -41,21 +37,11 @@ export default {
     },
   },
   data: () => ({
-    state: "none",
+    closed: false,
   }),
   methods: {
-    changeState() {
-      switch (this.state) {
-        case "none":
-          this.state = "close";
-          break;
-        case "close":
-          this.state = "done";
-          break;
-        default:
-          this.state = "none";
-          break;
-      }
+    flip() {
+      this.closed = !this.closed;
     },
   },
 };
