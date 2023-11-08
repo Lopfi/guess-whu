@@ -7,7 +7,7 @@
 <style>
 .card {
   width: 200px;
-  height: 250px;
+  height: 270px;
   color: black;
   font-size: large;
   font-weight: bold;
