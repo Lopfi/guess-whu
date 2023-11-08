@@ -1,5 +1,6 @@
 <template>
-  <div class="q-gutter-sm fit row wrap">
+  <h3>Please select a set to play</h3>
+  <div class="q-gutter-sm fit row wrap justify-center">
     <SetCard
       v-for="(set, n) in sets"
       :name="set.name"

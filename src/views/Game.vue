@@ -1,6 +1,6 @@
 <template>
-  <h1>{{ set.name }}</h1>
-  <div class="q-gutter-sm fit row wrap">
+  <h3>{{ set.name }}</h3>
+  <div class="q-gutter-sm fit row wrap justify-center">
     <Card
       v-for="(card, n) in set.cards"
       :name="card.name"

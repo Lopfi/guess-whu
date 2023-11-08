@@ -1,10 +1,10 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar>
-        <router-link to="/guess-whu">
-          <q-toolbar-title> Guess Whu </q-toolbar-title>
-        </router-link>
+      <q-toolbar class="bg-primary text-white">
+        <UnstyledLink to="/guess-whu" class="">
+          <q-toolbar-title class="absolute-center"> Guess Whu </q-toolbar-title>
+        </UnstyledLink>
       </q-toolbar>
     </q-header>
     <q-page-container>
@@ -14,7 +14,10 @@
 </template>
 
 <script lang="ts">
+import UnstyledLink from "./components/UnstyledLink.vue";
+
 export default {
   name: "LayoutDefault",
+  components: { UnstyledLink },
 };
 </script>
