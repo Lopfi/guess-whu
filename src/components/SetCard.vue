@@ -1,28 +1,23 @@
 <template>
   <router-link :to="`/guess-whu/game/${name}`">
-    <q-card class="card">
+    <Card>
       <img :src="img" :ratio="4 / 3" :width="180" />
 
       <q-card-section>
         <div class="name">{{ name }}</div>
       </q-card-section>
-    </q-card>
+    </Card>
   </router-link>
 </template>
 
-<style>
-.card {
-  width: 200px;
-  height: 250px;
-  color: black;
-  font-size: large;
-  font-weight: bold;
-  text-align: center;
-}
-</style>
+<style></style>
 
 <script lang="ts">
+import Card from "./Card.vue";
 export default {
+  components: {
+    Card,
+  },
   props: {
     name: {
       type: String,

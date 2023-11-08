@@ -13,6 +13,17 @@
   </q-layout>
 </template>
 
+<style>
+body,
+html {
+  /* The image used */
+  background-image: url("/src/assets/background.jpg");
+
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+
 <script lang="ts">
 import UnstyledLink from "./components/UnstyledLink.vue";
 

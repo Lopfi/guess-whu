@@ -1,12 +1,6 @@
 <template>
-  <q-card class="card" @click="flip()">
-    <q-img :src="img" :ratio="3 / 4" width="120px">
-      <q-icon v-show="closed" name="close" color="red" size="120px" />
-    </q-img>
-
-    <q-card-section>
-      <div class="name">{{ name }}</div>
-    </q-card-section>
+  <q-card class="card">
+    <slot> </slot>
   </q-card>
 </template>
 
@@ -24,25 +18,4 @@
 }
 </style>
 
-<script lang="ts">
-export default {
-  props: {
-    name: {
-      type: String,
-      required: true,
-    },
-    img: {
-      type: String,
-      required: true,
-    },
-  },
-  data: () => ({
-    closed: false,
-  }),
-  methods: {
-    flip() {
-      this.closed = !this.closed;
-    },
-  },
-};
-</script>
+<script lang="ts"></script>

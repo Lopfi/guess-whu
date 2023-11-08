@@ -1,7 +1,7 @@
 <template>
   <h3>{{ set.name }}</h3>
   <div class="q-gutter-sm fit row wrap justify-center">
-    <Card
+    <GameCard
       v-for="(card, n) in set.cards"
       :name="card.name"
       :img="card.image"
@@ -13,7 +13,7 @@
 <style></style>
 
 <script lang="ts">
-import Card from "../components/Card.vue";
+import GameCard from "../components/GameCard.vue";
 import { getSet, Set } from "../lib/sets.ts";
 
 export default {
@@ -21,7 +21,7 @@ export default {
     set: {} as Set,
   }),
   components: {
-    Card,
+    GameCard,
   },
   async beforeMount() {
     const setParam = Array.isArray(this.$route.params.set)
