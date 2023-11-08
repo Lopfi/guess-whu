@@ -24,7 +24,6 @@ export default {
   },
   async created() {
     this.sets = await getSets();
-    console.log(this.sets);
   },
 };
 </script>

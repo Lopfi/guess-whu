@@ -1,7 +1,7 @@
 const images = {
-  ...import.meta.glob("/src/assets/sets/*/*.png"),
-  ...import.meta.glob("/src/assets/sets/*/*.jpg"),
-  ...import.meta.glob("/src/assets/sets/*/*.jpeg"),
+  ...import.meta.glob("/public/sets/*/*.png"),
+  ...import.meta.glob("/public/sets/*/*.jpg"),
+  ...import.meta.glob("/public/sets/*/*.jpeg"),
 };
 
 let sets: Set[] = [];
@@ -24,7 +24,8 @@ async function loadSets() {
   let thumbnail: string | undefined;
   let currentSet = "";
   for (const path in images) {
-    const setName = path.split("/")[4] as string;
+    const actualPath = path.replace("/public", "/guess-whu");
+    const setName = path.split("/")[3] as string;
     if (currentSet !== setName) {
       if (currentSet !== "") {
         sets.push({ name: currentSet, cards, thumbnail });
@@ -32,10 +33,15 @@ async function loadSets() {
       }
       currentSet = setName;
     }
-    const cardName = path.split("/")[5].split(".")[0];
-    if (cardName !== "thumbnail") cards.push({ name: cardName, image: path });
+    const cardName = path.split("/")[4].split(".")[0];
+
+    if (cardName !== "thumbnail")
+      cards.push({
+        name: cardName,
+        image: actualPath,
+      });
     else {
-      thumbnail = path;
+      thumbnail = actualPath;
     }
   }
   sets.push({ name: currentSet, cards, thumbnail });

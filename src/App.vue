@@ -2,7 +2,7 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
-        <router-link to="/">
+        <router-link to="/guess-whu">
           <q-toolbar-title> Guess Whu </q-toolbar-title>
         </router-link>
       </q-toolbar>

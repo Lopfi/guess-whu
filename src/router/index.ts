@@ -7,17 +7,17 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
-      path: "/",
+      path: "/guess-whu/",
       name: "Home",
       component: Home,
     },
     {
-      path: "/sets",
+      path: "/guess-whu/sets",
       name: "Sets",
       component: Sets,
     },
     {
-      path: "/game/:set",
+      path: "/guess-whu/game/:set",
       name: "Game",
       component: Game,
     },

@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="`/game/${name}`">
+  <router-link :to="`/guess-whu/game/${name}`">
     <q-card class="card">
       <img :src="img" :ratio="4 / 3" :width="180" />
 
