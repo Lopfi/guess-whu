@@ -20,31 +20,40 @@ export type Card = {
 async function loadSets() {
   if (sets.length !== 0) return;
   sets = [];
-  let cards: Card[] = [];
-  let thumbnail: string | undefined;
-  let currentSet = "";
   for (const path in images) {
     const actualPath = path.replace("/public", "/guess-whu");
     const setName = path.split("/")[3] as string;
-    if (currentSet !== setName) {
-      if (currentSet !== "") {
-        sets.push({ name: currentSet, cards, thumbnail });
-        cards = [];
-      }
-      currentSet = setName;
-    }
     const cardName = path.split("/")[4].split(".")[0];
-
-    if (cardName !== "thumbnail")
-      cards.push({
-        name: cardName,
-        image: actualPath,
-      });
-    else {
-      thumbnail = actualPath;
+    const set = sets.find((set) => set.name === setName);
+    if (set) {
+      if (cardName !== "thumbnail")
+        set.cards.push({
+          name: cardName,
+          image: actualPath,
+        });
+      else {
+        set.thumbnail = actualPath;
+      }
+    } else {
+      if (cardName !== "thumbnail")
+        sets.push({
+          name: setName,
+          cards: [
+            {
+              name: cardName,
+              image: actualPath,
+            },
+          ],
+        });
+      else {
+        sets.push({
+          name: setName,
+          cards: [],
+          thumbnail: actualPath,
+        });
+      }
     }
   }
-  sets.push({ name: currentSet, cards, thumbnail });
 }
 
 export async function getSets() {
