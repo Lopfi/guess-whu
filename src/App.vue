@@ -16,7 +16,6 @@
 <style>
 body,
 html {
-  /* The image used */
   background-image: url("/src/assets/background.jpg");
 
   background-repeat: no-repeat;
